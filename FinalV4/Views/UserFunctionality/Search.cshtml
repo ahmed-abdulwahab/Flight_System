@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "_SearchLayout";
+}
+@model FinalV4.Models.City
+
+<div style="width: 100%;">
+    <form method="post" class="form" class="row mb-2" action="~/UserFunctionality/ApplySearch">
+
+
+        <div class="form-group">
+
+            <div>
+                <input type="radio" name="FlightType" id="one-way" value="OneWay" />
+                <label class="form-check-label" for="one-way">OneWay</label>
+            </div>
+            <div>
+                <input type="radio" name="FlightType" id="return" value="Return" />
+                <label class="form-check-label" for="return">Return</label>
+            </div>
+        </div>
+
+        <select name="Depature_City" class="form-control">
+            <option value=""> Depature City </option>
+            @foreach (var item in ViewBag.Names)
+            {
+                <option>@item</option>
+            }
+        </select>
+
+        <select name="Arrival_City" class="form-control">
+            <option value="">Arrival City</option>
+            @foreach (var item in ViewBag.Names)
+            {
+                <option>@item</option>
+            }
+        </select>
+
+        <br />
+
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" name ="Date" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary"> Filter </button>
+
+    </form>
+</div>

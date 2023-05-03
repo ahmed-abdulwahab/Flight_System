@@ -1,0 +1,245 @@
+﻿
+@{
+    ViewData["Title"] = "_filterPartialView";
+ //   var sara = ViewBag.MyData;
+}
+
+
+
+
+@model FinalV4.Models.Flight;
+
+
+
+
+@{
+    var Flight1 = ViewBag.FlightOneWay;
+    var Flight2 = ViewBag.FlightTwoWay;
+
+}
+
+
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       
+
+    </head>
+    <body>
+
+      
+      <div id="sara">
+       @*   <h1>bravooooooooo sarsora</h1>*@
+      
+        @if (Flight1.Count == 0){
+           
+        }
+         else if ((Flight2 == null || Flight2.Count == 0) && (Flight1.Count != 0 || Flight1 != null))
+         {
+            foreach (var flight in Flight1)
+            {
+                                    <div class="container m-5 ">
+                                        <div class="row row2 border-2 border-success">
+                                            <div class="col-md-3">
+                                                <div class="Type">
+                                                    <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                                    <div> <p>Economy</p></div>
+
+                                                </div>
+                                                <div class="Company">                        
+                                                    <div class="imge1">
+                                    @if (@Flight1 != null && @flight.Company != null && @flight.Company.Image != null)
+                                    {
+                                                                            <img src="data:image/png;base64,@Convert.ToBase64String(@flight.Company.Image)" />
+                                    }
+                                                    </div>
+                                                            <div> <p class="name">@flight.Company.UserName</p></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 data">
+                                                        <h2>@flight.DateFrom.ToShortDateString()</h2>
+                                                        <h6>@flight.DateFrom.TimeOfDay</h6>
+                                                        <p> @flight.DepartureCity.Name</p>
+                                            </div>
+                                            <div class="col-md-3">
+
+                            @{
+                                var ResultTime = (@flight.DateTo.TimeOfDay).Subtract(@flight.DateFrom.TimeOfDay);
+                            }
+                                                <p> @ResultTime </p>
+                                            <div class="icon2">
+
+                                                <div class="line"></div>
+                                                <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-3 data">
+                                                    <h2>@flight.DateTo.ToShortDateString()</h2>
+                                                    <h6>@flight.DateTo.TimeOfDay</h6>
+                                                    <p>@flight.ArrivalCity.Name</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="row row2 book justify-content-between">
+
+                                        <div class="col-md-4 text-start">
+                                                    <h5>@flight.Price</h5>
+                                        </div>
+                                        <div class="col-md-4 text-end">
+                                            <form action="/BookTicket/Index">
+
+                                                        <input type="text" hidden value="@flight.Id" name="firstWay">
+                                                <input type="text" hidden value=null   name="Return">
+                                                <button class="btn2 btn btn-outline-dark text-end">Book</button>
+                                            </form>    
+                                        </div>
+                                    </div>
+                                </div>
+            }
+            }
+        else if ((Flight2!=null||Flight2.Count != 0) && Flight1.Count != 0)
+                    {
+            foreach (var flight in Flight1)
+            {
+
+                foreach (var item in Flight2)
+                {
+
+
+                                        <div class="container m-5 ">
+
+                        @*Flight1*@
+
+                                            <div class="row row2">
+                                                <div class="col-md-3">
+                                                    <div class="Type">
+                                                        <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                                        <div> <p>Economy</p></div>
+
+                                                    </div>
+                                                    <div class="Company">
+                                                        <div class="imge1"> 
+                                        @if (@Flight1 != null && @flight.Company != null && @flight.Company.Image != null)
+                                        {
+                                                                                    <img src="data:image/png;base64,@Convert.ToBase64String(@flight .Company.Image)" />
+                                        }
+                                                        </div>
+                                                                    <div> <p class="name">@flight.Company.UserName</p></div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 data">
+                                                                <h2>@flight.DateFrom.ToShortDateString()</h2>
+                                                                <h6>@flight.DateFrom.TimeOfDay</h6>
+                                                                <p> @flight.DepartureCity.Name</p>
+                                                </div>
+                                                <div class="col-md-3">
+
+                                @{
+                                    var ResultTime2 = (@flight.DateTo.TimeOfDay).Subtract(@flight.DateFrom.TimeOfDay);
+                                }
+                                                    <p> @ResultTime2 </p>
+                                                    <div class="icon2">
+
+                                                        <div class="line"></div>
+                                                        <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3 data">
+                                                                <h2>@flight.DateTo.ToShortDateString()</h2>
+                                                                <h6>@flight.DateTo.TimeOfDay</h6>
+                                                                <p>@flight.ArrivalCity.Name</p>
+                                                </div>
+
+                                            </div>
+
+                        @*Flight2*@
+
+                                            <div class="row row2">
+                                                <div class="col-md-3">
+                                                    <div class="Type">
+                                                        <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                                        <div> <p>Economy</p></div>
+
+                                                    </div>
+                                                    <div class="Company">
+                                                        <div class="imge1"> 
+                                        @if (@item != null && @item.Company != null && @item.Company.Image != null)
+                                        {
+                                                                    <img src="data:image/png;base64,@Convert.ToBase64String(@item.Company.Image)" />
+                                        }
+                                                        </div>
+                                                        <div> <p class="name">@item.Company.UserName</p></div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 data">
+                                                    <h2>@item.DateFrom.ToShortDateString()</h2>
+                                                    <h6>@item.DateFrom.TimeOfDay</h6>
+                                                    <p> @item.DepartureCity.Name</p>
+                                                </div>
+                                                <div class="col-md-3">
+
+                                @{
+                                    var ResultTime3 = (@item.DateTo.TimeOfDay).Subtract(@item.DateFrom.TimeOfDay);
+                                }
+                                                    <p> @ResultTime3 </p>
+                                                    <div class="icon2">
+
+                                                        <div class="line"></div>
+                                                        <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3 data">
+                                                    <h2>@item.DateTo.ToShortDateString()</h2>
+                                                    <h6>@item.DateTo.TimeOfDay</h6>
+                                                    <p>@item.ArrivalCity.Name</p>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="row row2 book justify-content-between">
+
+                                                <div class="col-md-4 text-start">
+                                @{
+                                    var TotalPrice = @item.Price + @flight.Price;
+                                }
+                                                    <h5>@TotalPrice$</h5>
+                                                </div>
+                                                <div class="col-md-4 text-end">
+
+                                                    <form action="/BookTicket/Index">
+
+                                                                    <input type="text" hidden value="@flight.Id" name="firstWay">
+                                                        <input type="text" hidden value="@item.Id" name="Return">
+                                                        <button class="btn2 btn btn-outline-dark text-end">Book</button>
+                                                    </form>         
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                }
+            }
+
+                    }
+      
+
+
+
+   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+

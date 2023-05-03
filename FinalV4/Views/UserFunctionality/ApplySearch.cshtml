@@ -1,0 +1,544 @@
+﻿@model FinalV4.Models.Flight;
+
+
+@{
+    Layout = "_BookingLayout";
+}
+
+@{
+    var Flight1 = ViewBag.FlightOneWay;
+    var Flight2 = ViewBag.FlightTwoWay;
+    var comp = ViewBag.Com;
+}
+
+
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            *{
+                margin:0px;
+                padding:0px;
+            }
+        .parent {
+            width: 80%;
+            margin: auto;
+            /* display: flex; */
+            justify-content: space-around;
+        }
+
+        .Type {
+            display: flex;
+            background-color: rgb(161, 158, 158);
+            border-radius: 30px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 30px;
+            width: fit-content;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        i {
+            margin-right: 0px;
+        }
+
+        .imge1 {
+            margin-top: 30px;
+        }
+
+        .Company {
+            display: flex;
+            align-items: center;
+        }
+
+        .name {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .row2 {
+            align-items: center;
+           background-color:white;
+            padding: 30px;
+            border-bottom: dashed  1px #6998AB;
+        }
+
+        .data {
+            text-align: center;
+        }
+
+        .line {
+            height: 3px;
+            width: 80px;
+            background-color: rgb(3, 3, 3);
+            border-radius: 3px;
+        }
+
+        .icon2 {
+            display: flex;
+            align-items: center;
+        }
+
+        .line2 {
+            padding: 0px;
+            margin: 0px;
+            width: fit-content;
+        }
+
+        .book {
+            background-color: #6998AB;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .btn2 {
+            padding-left: 50px;
+            padding-right: 50px;
+            background-color:transparent;
+            border:solid,#fff,2px;
+        }
+
+        body{
+        background-color: #f8f9fa;
+      }
+      .temp{
+     /* background-color: #6998AB; */
+      /*  height: 300vh;*/
+        padding: 0px;
+    
+      }
+
+      .temp2{
+        padding-bottom: 50px;
+        background-color: #6998AB; 
+      /*  position: relative;*/
+        box-shadow: 10px 20px 20px 1px rgba(190, 192, 245, 0.2);
+      
+        min-height: 100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:start;
+      
+        padding-left:30px;
+        padding-top:15vh;
+      }
+   
+
+        
+        /*position: absolute;*/
+        
+
+
+   
+      .des{
+
+        
+         margin-top:100px;
+         margin-bottom:30px;
+      }
+      .con2{
+      margin-top: 60px;
+      padding-top:40px;
+   background-color:#6998AB;
+     min-height: 100vh;
+
+      }
+      .Top_btn{
+            cursor: pointer;
+            padding:15px;
+            border-radius:50%;
+            background-color:rgba(105,152,171,0.7);
+            position :fixed;
+            right:70px;
+            bottom:100px;
+            z-index:99999;
+            transition: all,2s;
+            box-shadow: 10px 20px 20px 1px rgba(190, 192, 245, 0.6);
+           
+
+        }
+        .Top_btn:hover{
+            background-color:rgba(105,152,171,0.4);
+          box-shadow: 10px 20px 20px 1px rgba(190, 192, 245, 0.9);
+        }
+     /* .nav{
+        height: 10vh;
+        background-color: #6998AB;
+        position: fixed;
+        left: 0;
+        right: 0;
+      }*/
+    </style>
+
+    </head>
+    <body>
+    <div id="Top_btn" class="Top_btn d-none">
+        <a href="#navbar">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+
+    </div>
+   
+
+                   <div>
+
+
+
+   <div class="row">
+            <div class="col-md-2 temp2 ">
+   
+                
+                   
+     <h5 style=color:white;">Filter by Company Name</h5>
+     <hr style="margin-bottom:20px;" />
+  <div class="con">
+     
+      @foreach( var com in comp){
+
+          <div class="d-flex">
+  <div style="width:100px ; color:white ;"><label>@com.UserName</label></div>
+  <div><input  style="width:50px" class="inp"  value="@com.Id"  type="checkbox"></div>
+    
+</div>
+
+      }
+</div>
+
+              
+              
+                </div>
+                    
+
+
+      
+
+
+<div class="temp col-md-10">
+
+    <div id="sara" class="col-md-10 des">
+      @*@if(@Flight1!=null&&@Flight1.Count >0 > 0||@Flight2!=null&&@Flight2?.Count > 0){*@
+                    @if ((Flight2 == null && Flight1 == null) || (Flight2 == null && (Flight1?.Count ?? 0) != 0) || ((Flight2?.Count ?? 0) == 0 && (Flight1?.Count ?? 0) != 0))                    {
+                        foreach (var flight in Flight1)
+                        {
+                            <div class="container m-5 ">
+                                <div class="row row2 border-2 border-success">
+                                    <div class="col-md-3">
+                                        <div class="Type">
+                                            <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                            <div> <p>Economy</p></div>
+
+                                        </div>
+                                        <div class="Company">                        
+                                            <div class="imge1">
+                                                @if (@Flight1 != null && @flight.Company != null && @flight.Company.Image != null)
+                                                {
+                                                                <img src="data:image/png;base64,@Convert.ToBase64String(@flight.Company.Image)" />
+                                                }
+                                            </div>
+                                                    <div> <p class="name">@flight.Company.UserName</p></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 data">
+                                                <h2>@flight.DateFrom.ToShortDateString()</h2>
+                                                <h6>@flight.DateFrom.TimeOfDay</h6>
+                                                <p> @flight.DepartureCity.Name</p>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        @{
+                                            var ResultTime = (@flight.DateTo.TimeOfDay).Subtract(@flight.DateFrom.TimeOfDay);
+                                        }
+                                        <p> @ResultTime </p>
+                                    <div class="icon2">
+
+                                        <div class="line"></div>
+                                        <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 data">
+                                            <h2>@flight.DateTo.ToShortDateString()</h2>
+                                            <h6>@flight.DateTo.TimeOfDay</h6>
+                                            <p>@flight.ArrivalCity.Name</p>
+                                </div>
+
+                            </div>
+                            <div class="row row2 book justify-content-between">
+
+                                <div class="col-md-4 text-start">
+                                            <h5>@flight.Price</h5>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <form action="/BookTicket/Index">
+
+                                                <input type="text" hidden value="@flight.Id" name="firstWay">
+                                        <input type="text" hidden value=null   name="Return">
+                                        <button class="btn2 btn btn-outline-dark text-end">Book</button>
+                                    </form>    
+                                </div>
+                            </div>
+                        </div>
+                                      }
+                    }
+                    else if (Flight2 != null && Flight1 != null && (Flight2?.Count ?? 0) != 0 && (Flight1?.Count ?? 0) != 0)                        {
+                        foreach (var flight in Flight1)
+                        {
+                      
+                        foreach (var item in Flight2)
+                        {
+
+
+                            <div class="container m-5 ">
+
+                                @*Flight1*@
+
+                                <div class="row row2">
+                                    <div class="col-md-3">
+                                        <div class="Type">
+                                            <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                            <div> <p>Economy</p></div>
+
+                                        </div>
+                                        <div class="Company">
+                                            <div class="imge1"> 
+                                                    @if (@Flight1 != null && @flight.Company != null && @flight.Company.Image != null)
+                                                {
+                                                                    <img src="data:image/png;base64,@Convert.ToBase64String(@flight .Company.Image)" />
+                                                }
+                                            </div>
+                                                        <div> <p class="name">@flight.Company.UserName</p></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 data">
+                                                    <h2>@flight.DateFrom.ToShortDateString()</h2>
+                                                    <h6>@flight.DateFrom.TimeOfDay</h6>
+                                                    <p> @flight.DepartureCity.Name</p>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        @{
+                                                var ResultTime2 = (@flight.DateTo.TimeOfDay).Subtract(@flight.DateFrom.TimeOfDay);
+                                        }
+                                        <p> @ResultTime2 </p>
+                                        <div class="icon2">
+
+                                            <div class="line"></div>
+                                            <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3 data">
+                                                    <h2>@flight.DateTo.ToShortDateString()</h2>
+                                                    <h6>@flight.DateTo.TimeOfDay</h6>
+                                                    <p>@flight.ArrivalCity.Name</p>
+                                    </div>
+
+                                </div>
+
+                                @*Flight2*@
+
+                                <div class="row row2">
+                                    <div class="col-md-3">
+                                        <div class="Type">
+                                            <div>  <i class="fa-sharp fa-solid fa-jet-fighter-up"></i></div>
+                                            <div> <p>Economy</p></div>
+
+                                        </div>
+                                        <div class="Company">
+                                            <div class="imge1"> 
+                                                @if (@item != null && @item.Company != null && @item.Company.Image != null)
+                                                {
+                                                    <img src="data:image/png;base64,@Convert.ToBase64String(@item.Company.Image)" />
+                                                }
+                                            </div>
+                                            <div> <p class="name">@item.Company.UserName</p></div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 data">
+                                        <h2>@item.DateFrom.ToShortDateString()</h2>
+                                        <h6>@item.DateFrom.TimeOfDay</h6>
+                                        <p> @item.DepartureCity.Name</p>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        @{
+                                            var ResultTime3 = (@item.DateTo.TimeOfDay).Subtract(@item.DateFrom.TimeOfDay);
+                                        }
+                                        <p> @ResultTime3 </p>
+                                        <div class="icon2">
+
+                                            <div class="line"></div>
+                                            <div class="line2"><i class="fa-solid fa-play"></i></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3 data">
+                                        <h2>@item.DateTo.ToShortDateString()</h2>
+                                        <h6>@item.DateTo.TimeOfDay</h6>
+                                        <p>@item.ArrivalCity.Name</p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row row2 book justify-content-between">
+
+                                    <div class="col-md-4 text-start">
+                                        @{
+                                            var TotalPrice=@item.Price+@flight.Price;
+                                        }
+                                        <h5>@TotalPrice$</h5>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+
+                                        <form action="/BookTicket/Index">
+
+                                                        <input type="text" hidden value="@flight.Id" name="firstWay">
+                                            <input type="text" hidden value="@item.Id" name="Return">
+                                            <button class="btn2 btn btn-outline-dark text-end">Book</button>
+                                        </form>         
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    }
+
+                   
+                    else{
+                        <div class=" pt-5 w-50 m-auto text-center d-flex justify-content-center align-items-center">
+                       <div class="mb-4"> <h3>No Flights found</h3>
+                        <div  class="w-100 m-auto text-center">
+                            <img src="/images/no.png" class="img-fluid">
+                            </div>
+                            </div>
+                        </div>
+                    }
+                   
+
+</div>
+</div>
+
+<hr/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+   
+          <script>
+
+
+
+
+  // Add scroll event listener to window
+  window.addEventListener('scroll', function() {
+      console.log(document.documentElement.scrollTop);
+    if (document.documentElement.scrollTop > 100) {
+      // Show the button
+     document.getElementById('Top_btn').classList.add("d-block");
+     document.getElementById('Top_btn').classList.remove("d-none");
+    } else {
+      // Hide the button
+    document.getElementById('Top_btn').classList.remove("d-block");
+      document.getElementById('Top_btn').classList.add("d-none");
+    }
+  });
+
+  // Add click event listener to button
+   document.getElementById('Top_btn').addEventListener('click', function() {
+    // Scroll window to top of page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+
+
+
+
+
+
+         
+              
+
+
+
+  var flights = @Html.Raw(Json.Serialize(ViewBag.Flights));
+  console.log(flights)
+let checkboxes = document.getElementsByClassName('inp');
+for (let i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener('change', function() {
+    let checkedValues = [];
+    for (let j = 0; j < checkboxes.length; j++) {
+      if (checkboxes[j].checked) {
+        checkedValues.push(checkboxes[j].value);
+      }
+    }
+    console.log(checkedValues);
+
+     $.ajax({
+         url: '/UserFunctionality/filter',
+         type: 'POST',
+         data: JSON.stringify({ Filter:checkedValues  }),
+         contentType: 'application/json; charset=utf-8',
+         error: function (xhr, status, error) {
+              console.log(xhr);
+            alert('Error: ' + error)
+         },
+         success: function (result) {
+           // CheckIfInvoiceFound(result);
+           console.log(result)
+           document.getElementById("sara").innerHTML=result
+         },
+         async: true,
+         processData: false
+      });
+  }); // <--- add this closing curly brace
+}
+
+
+
+
+
+
+  
+
+
+
+
+
+   </script> 
+   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
+
+
+</body>
+</html>
+
+    
+
+

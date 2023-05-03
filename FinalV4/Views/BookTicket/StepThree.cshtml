@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page with 3 Divs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/Seats.css">
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div id="hero">
+
+        <!-- Header Section -->
+        <div id="header" class="bg-primary text-white">
+         
+        </div>
+
+        <!-- Form- HeaderSection -->
+        <div id="form-div" class="seats">
+
+            <div class="bluecolor" style="display: block;  width: 50%; margin-left: 25%;">
+                <p id="icon">&#x1F4EE;&#x1F4EE;</p>
+            </div>
+
+            <div class="innerdiv" style="width: 50%; margin: auto; margin-bottom: 30px; margin-left: 25%;">
+
+                <!-- Form- TextSection -->
+                <div class="textaboveform">
+                    <h3> No Seat map available for this flight </h3>
+                    <h5> Would you like to select a seat preference? </h5>
+                </div>
+
+
+                <form id="form-container " asp-action="StepFour" asp-controller="BookTicket" method="get">
+                    <div>
+
+                        <div class="form-group" style="margin-top: -14px; padding: 14px;">
+                            <input type="radio" name="seats" value="Front ">
+                            <span> In Front </span>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 10px; padding: 14px;">
+                            <input type="radio" name="seats" value="Next_To_window">
+                            <span>Next to Window</span>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px; padding: 14px;">
+
+                            <input type="radio" name="seats" value="Back">
+                            <span>In Back</span>
+                        </div>
+                    </div>
+                    <input class="nextbtn" type="submit" value="Next">
+
+
+                </form>
+            </div>
+
+
+        </div>
+        @* <div class="myBtn" style="background-color: white; height: 80px;">
+            <button form="formId" class="nextbtn" type="submit">
+                <span>Next</span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 256 256">
+                    <polyline points="96 48 176 128 96 208" fill="none" stroke="currentColor"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+                    </polyline>
+                </svg>
+            </button>
+        </div>*@
+
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-NvWGQW1t80iWRos65YKtUiN/20Qn1tNn1txAFN/7MunIrpNS//N4KpNV4YgX7VcR"
+            crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

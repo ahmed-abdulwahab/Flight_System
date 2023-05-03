@@ -1,0 +1,295 @@
+/**{
+    box-sizing: border-box;
+}*/
+
+body {
+    background-color: #F0F0F0;
+}
+
+/*.container{
+    margin-top: 0px;
+}
+*/
+a{
+    text-decoration:none;
+}
+.form1{
+    margin-top:100px;
+}
+.page-left .row.inner-left {
+    background-color: #fff;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.page-right{
+    background-color: #fff;
+    padding: 26px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+h5{
+    font-size: 17px;
+}
+
+ Style for radio button 
+.travel_ins input[type="radio"] {
+     Hide default radio button 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+     Create custom radio button 
+    border: 2px solid #555;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/*   Style for radio button label 
+.travel_ins .radio-label {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 14px;
+}*/
+
+   Style for selected radio button 
+.travel_ins input[type="radio"]:checked {
+    background-color: #000;
+    border-color: #000;
+    animation: radio-button-pulse 0.3s ease-in-out forwards;
+}
+
+.travel_ins span:has(>input[type="radio"]:checked) {
+    background-color: #B4EDFF;
+    border-color: #B4EDFF;
+}
+
+.travel_ins label:before {
+    margin: 14px 10px -4px 10px;
+    width: 18px;
+    height: 18px;
+    border: solid 4px #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px #222;
+    display: inline-block;
+    content: "";
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+    top: 2px;
+}
+
+.travel_ins label:hover:before {
+    background: #B4EDFF;
+}
+
+.travel_ins input:checked + label:before {
+    background: black;
+}
+
+.travel_ins input {
+    display: none;
+}
+
+.travel_ins .myBtn:hover{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+i{
+    color: rgb(14, 121, 85);
+    font-weight: 100;
+}
+
+ Passenger card 
+.passenger .gender-row label:before {
+    margin: 14px 10px -4px 10px;
+    width: 18px;
+    height: 18px;
+    border: solid 4px #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px #222;
+    display: inline-block;
+    content: "";
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+    top: 2px;
+}
+
+.passenger .gender-row label:hover:before {
+    background: #B4EDFF;
+}
+
+.passenger .gender-row input:checked + label:before {
+    background: black;
+}
+
+
+.passenger .gender-row .myBtn:hover{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+
+
+
+
+/** {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F0F0F0;
+}
+
+.container {
+    margin-top: 20px;*/
+}
+/*
+.page-left .row.inner-left {
+    background-color: #fff;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.page-right {
+    background-color: #fff;
+    padding: 26px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}*/
+
+h5 {
+    font-size: 17px;
+}
+
+
+.travel_ins input[type="radio"] {
+     Hide default radio button 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+     Create custom radio button 
+    border: 2px solid #555;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.travel_ins .radio-label {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+
+.travel_ins input[type="radio"]:checked {
+    background-color: #000;
+    border-color: #000;
+    animation: radio-button-pulse 0.3s ease-in-out forwards;
+}
+
+.travel_ins span:has(>input[type="radio"]:checked) {
+    background-color: #B4EDFF;
+    border-color: #B4EDFF;
+}
+
+.travel_ins label:before {
+    margin: 14px 10px -4px 10px;
+     width: 18px;
+    height: 18px;
+    border: solid 4px #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px #222;
+    display: inline-block;
+    content: "";
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+    top: 2px;
+}
+
+.travel_ins label:hover:before {
+    background: #B4EDFF;
+}
+
+.travel_ins input:checked + label:before {
+    background: black;
+}
+
+
+
+.travel_ins .myBtn:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+i {
+    color: rgb(14, 121, 85);
+    font-weight: 100;
+}
+
+ Passenger card 
+.passenger .gender-row label:before {
+    margin: 14px 10px -4px 10px;
+     width: 18px;
+    height: 18px;
+    border: solid 4px #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px #222;
+    display: inline-block;
+    content: "";
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    position: relative;
+    top: 2px;
+}
+
+.passenger .gender-row label:hover:before {
+    background: #B4EDFF;
+}
+
+.passenger .gender-row input:checked + label:before {
+    background: black;
+}
+
+
+
+.passenger .gender-row .myBtn:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
